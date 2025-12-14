@@ -49,6 +49,7 @@ body {
     font-weight: bold;
 }
 
+/* ===== NAV LINKS ===== */
 .nav-links {
     list-style: none;
     display: flex;
@@ -116,6 +117,23 @@ header p {
     color: #1e40af;
 }
 
+/* ===== SOCIAL ICONS ===== */
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 28px;
+    margin: 0 12px;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #93c5fd;
+    transform: scale(1.15);
+}
+
 /* ===== SECTIONS ===== */
 section {
     padding: 60px 20px;
@@ -177,6 +195,28 @@ h2 {
     flex-wrap: wrap;
 }
 
+/* ===== CONTACT FORM ===== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 120px;
+}
+
 /* ===== SCROLL REVEAL ===== */
 .reveal {
     opacity: 0;
@@ -197,6 +237,7 @@ footer {
     color: #9ca3af;
     font-size: 0.9rem;
 }
+
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
     display: none;
@@ -236,5 +277,9 @@ footer {
 
     .nav-links li {
         margin: 15px 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 }
