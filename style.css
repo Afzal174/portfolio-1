@@ -1,0 +1,240 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== GLOBAL ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+    color: #e5e7eb;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in;
+}
+
+/* ===== PAGE LOAD ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #020617;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.logo {
+    color: #60a5fa;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #60a5fa;
+    border-bottom: 2px solid #60a5fa;
+    padding-bottom: 3px;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 12px 0 25px;
+    font-size: 1.1rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn,
+.btn-outline {
+    padding: 10px 22px;
+    border-radius: 6px;
+    margin: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.btn {
+    background: white;
+    color: #1e40af;
+}
+
+.btn:hover {
+    background: #e0e7ff;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #1e40af;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #60a5fa;
+}
+
+/* ===== CARDS ===== */
+.card,
+.project-card {
+    background: #1e293b;
+    padding: 22px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    transition: 0.3s ease;
+}
+
+.card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* ===== SKILLS ===== */
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill p {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.progress {
+    background: #020617;
+    border-radius: 20px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #60a5fa, #2563eb);
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+}
+
+/* ===== PROJECT LINKS ===== */
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #e5e7eb;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: #020617;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
