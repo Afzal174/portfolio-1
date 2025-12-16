@@ -6,14 +6,31 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ===== THEME VARIABLES ===== */
+:root {
+    --bg: #0f172a;
+    --text: #e5e7eb;
+    --nav: #020617;
+    --card: #1e293b;
+    --accent: #60a5fa;
+}
+
+.light-theme {
+    --bg: #f8fafc;
+    --text: #0f172a;
+    --nav: #e5e7eb;
+    --card: #ffffff;
+    --accent: #2563eb;
+}
+
 /* ===== GLOBAL ===== */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: #0f172a;
-    color: #e5e7eb;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
     animation: fadeIn 1s ease-in;
 }
@@ -35,7 +52,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #020617;
+    background: var(--nav);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +61,7 @@ body {
 }
 
 .logo {
-    color: #60a5fa;
+    color: var(--accent);
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -58,16 +75,26 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #e5e7eb;
+    color: var(--text);
     font-weight: 500;
     transition: 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #60a5fa;
-    border-bottom: 2px solid #60a5fa;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 3px;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text);
+    margin-left: 15px;
 }
 
 /* ===== HEADER ===== */
@@ -75,6 +102,7 @@ header {
     text-align: center;
     padding: 70px 20px;
     background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
 }
 
 header h1 {
@@ -143,13 +171,13 @@ section {
 
 h2 {
     margin-bottom: 25px;
-    color: #60a5fa;
+    color: var(--accent);
 }
 
 /* ===== CARDS ===== */
 .card,
 .project-card {
-    background: #1e293b;
+    background: var(--card);
     padding: 22px;
     border-radius: 10px;
     margin-bottom: 22px;
@@ -160,6 +188,42 @@ h2 {
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* ===== PROJECT IMAGES ===== */
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.03);
+}
+
+/* ===== PROJECT FILTERS ===== */
+.project-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: var(--card);
+    color: var(--text);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: white;
 }
 
 /* ===== SKILLS ===== */
@@ -173,7 +237,7 @@ h2 {
 }
 
 .progress {
-    background: #020617;
+    background: var(--nav);
     border-radius: 20px;
     height: 12px;
     overflow: hidden;
@@ -233,9 +297,35 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: #020617;
+    background: var(--nav);
     color: #9ca3af;
     font-size: 0.9rem;
+}
+
+/* ===== IMAGE MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
 }
 
 /* ===== HAMBURGER MENU ===== */
@@ -248,7 +338,7 @@ footer {
 .hamburger span {
     height: 3px;
     width: 25px;
-    background: #e5e7eb;
+    background: var(--text);
     margin: 4px 0;
     border-radius: 2px;
 }
@@ -263,7 +353,7 @@ footer {
         position: absolute;
         top: 65px;
         right: 0;
-        background: #020617;
+        background: var(--nav);
         width: 100%;
         flex-direction: column;
         align-items: center;

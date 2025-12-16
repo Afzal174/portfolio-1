@@ -5,20 +5,17 @@
 
     <!-- SEO -->
     <title>Mohamed Afzal | Web Developer Portfolio</title>
-    <meta name="description" content="Mohamed Afzal – Final Year CSE Student, Web Developer & ML Enthusiast. Portfolio showcasing projects, skills, and resume." />
-    <meta name="keywords" content="Mohamed Afzal, Portfolio, Web Developer, CSE Student, HTML CSS JavaScript" />
+    <meta name="description" content="Mohamed Afzal – Final Year CSE Student, Web Developer & ML Enthusiast." />
+    <meta name="keywords" content="Mohamed Afzal, Portfolio, Web Developer, ML, CSE" />
     <meta name="author" content="Mohamed Afzal" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    >
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -27,9 +24,7 @@
     <h2 class="logo">Afzal</h2>
 
     <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </div>
 
     <ul class="nav-links" id="navLinks">
@@ -39,39 +34,24 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle">🌙</button>
 </nav>
 
 <!-- ===== HEADER ===== -->
 <header>
     <h1>Mohamed Afzal A</h1>
-    <p>Final Year CSE Student | Web Developer | ML Enthusiast</p>
+    <p id="typing-text"></p>
 
     <div class="buttons">
         <a href="#projects" class="btn">View Projects</a>
-
-        <a
-            href="resume/Mohamed_Afzal_Resume.pdf"
-            class="btn-outline"
-            download
-            type="application/pdf"
-        >
-            Download Resume
-        </a>
-
-        <a
-            href="resume/Mohamed_Afzal_Resume.pdf"
-            class="btn"
-            target="_blank"
-        >
-            Open Resume
-        </a>
+        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn-outline" download>Download Resume</a>
+        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn" target="_blank">Open Resume</a>
     </div>
 
-    <!-- Social Links -->
     <div class="social-links">
-        <a href="https://github.com/Afzal174" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://github.com/Afzal174" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/mohamed-afzal-7ba942314" target="_blank">
             <i class="fab fa-linkedin"></i>
         </a>
@@ -83,7 +63,7 @@
     <h2>About Me</h2>
     <p>
         Final-year Computer Science and Engineering student at Sathyabama Institute of Science and Technology, Chennai.
-        Passionate about web development and machine learning with hands-on experience in responsive and interactive applications.
+        Passionate about web development and machine learning with hands-on experience in real-world projects.
     </p>
 </section>
 
@@ -99,8 +79,8 @@
 
     <div class="card">
         <h3>Higher Secondary & SSLC</h3>
-        <p>Kalaimagal Matric Higher Secondary School, Chidambaram</p>
-        <span>12th: 67.5% (2022) | 10th: 66.4% (2020)</span>
+        <p>Kalaimagal Matric Higher Secondary School</p>
+        <span>12th: 67.5% | 10th: 66.4%</span>
     </div>
 </section>
 
@@ -112,8 +92,8 @@
     <div class="skill"><p>Responsive Web Design</p><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
     <div class="skill"><p>Java (Basics)</p><div class="progress"><div class="progress-bar" data-width="60%"></div></div></div>
     <div class="skill"><p>MySQL</p><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
-    <div class="skill"><p>Machine Learning Concepts</p><div class="progress"><div class="progress-bar" data-width="65%"></div></div></div>
-    <div class="skill"><p>UI / UX (Figma, Canva)</p><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+    <div class="skill"><p>Machine Learning</p><div class="progress"><div class="progress-bar" data-width="65%"></div></div></div>
+    <div class="skill"><p>UI / UX</p><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
 </section>
 
 <!-- ===== EXPERIENCE ===== -->
@@ -123,9 +103,9 @@
         <h3>Web Development Intern</h3>
         <p>Prodigy InfoTech | Dec 2024</p>
         <ul>
-            <li>Developed frontend mini projects</li>
+            <li>Built frontend mini projects</li>
             <li>Improved UI responsiveness</li>
-            <li>Hands-on real-time development experience</li>
+            <li>Worked on real-time applications</li>
         </ul>
     </div>
 </section>
@@ -134,50 +114,44 @@
 <section id="projects" class="reveal">
     <h2>Projects</h2>
 
-    <!-- Hotel Reservation System -->
-    <div class="project-card">
+    <!-- Filters -->
+    <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ml">ML</button>
+        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+    </div>
+
+    <!-- Hotel -->
+    <div class="project-card" data-category="web">
+        <img src="images/hotel.png" class="project-img" onclick="openModal(this)">
         <h3>Hotel Reservation System</h3>
-        <p>
-            A responsive hotel booking web application with clean UI and user-friendly design.
-        </p>
-        <span>HTML, CSS, Responsive Design</span>
+        <p>Responsive hotel booking website.</p>
+        <span>HTML, CSS</span>
         <div class="project-links">
-            <a href="https://github.com/Afzal174/Hotel-Managment-System" target="_blank" class="btn">
-                GitHub
-            </a>
-            <a href="#" class="btn-outline">Live Demo</a>
+            <a href="https://github.com/Afzal174/Hotel-Managment-System" target="_blank" class="btn">GitHub</a>
         </div>
     </div>
 
-    <!-- Disease Prediction -->
-    <div class="project-card">
+    <!-- Disease -->
+    <div class="project-card" data-category="ml">
+        <img src="images/disease.png" class="project-img" onclick="openModal(this)">
         <h3>Disease Prediction (ML)</h3>
-        <p>
-            Machine learning–based web application to predict multiple diseases such as
-            diabetes, heart disease, and Parkinson’s.
-        </p>
-        <span>Python, Machine Learning, Streamlit</span>
+        <p>ML app predicting multiple diseases.</p>
+        <span>Python, Streamlit</span>
         <div class="project-links">
-            <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML" target="_blank" class="btn">
-                GitHub
-            </a>
-            <a href="#" class="btn-outline">Live Demo</a>
+            <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML" target="_blank" class="btn">GitHub</a>
         </div>
     </div>
 
     <!-- Clean Street -->
-    <div class="project-card">
+    <div class="project-card" data-category="fullstack">
+        <img src="images/cleanstreet.png" class="project-img" onclick="openModal(this)">
         <h3>Clean Street – Full Stack</h3>
-        <p>
-            A civic issue reporting and tracking system that allows users to report
-            cleanliness issues and monitor resolution status.
-        </p>
-        <span>React, SQL, Full Stack Development</span>
+        <p>Civic cleanliness reporting system.</p>
+        <span>React, SQL</span>
         <div class="project-links">
-            <a href="https://github.com/Afzal174/Clean_Street" target="_blank" class="btn">
-                GitHub
-            </a>
-            <a href="#" class="btn-outline">Live Demo</a>
+            <a href="https://github.com/Afzal174/Clean_Street" target="_blank" class="btn">GitHub</a>
         </div>
     </div>
 </section>
@@ -185,12 +159,7 @@
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="reveal">
     <h2>Contact Me</h2>
-
-    <form
-        action="https://formspree.io/f/xyzzabcd"
-        method="POST"
-        class="contact-form"
-    >
+    <form action="https://formspree.io/f/xyzzabcd" method="POST" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
@@ -201,6 +170,12 @@
 <footer>
     <p>© 2025 Mohamed Afzal A | Portfolio</p>
 </footer>
+
+<!-- ===== IMAGE MODAL ===== -->
+<div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modalImg">
+</div>
 
 <script src="script.js"></script>
 </body>
