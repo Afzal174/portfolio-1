@@ -1,57 +1,70 @@
 /* ================================
-   SCROLL REVEAL ANIMATION
+   ELEMENT SELECTORS
 ================================ */
 const revealElements = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
 
+const hamburger = document.getElementById("hamburger");
+const navLinksMenu = document.getElementById("navLinks");
+
+const videoModal = document.getElementById("videoModal");
+const projectVideo = document.getElementById("projectVideo");
+
+const skillBars = document.querySelectorAll(".progress-bar");
+const skillsSection = document.getElementById("skills");
+
+const themeToggle = document.getElementById("themeToggle");
+const navbar = document.querySelector(".navbar");
+
+let skillsAnimated = false;
+
+/* ================================
+   SCROLL REVEAL (OPTIMIZED)
+================================ */
 function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    const revealPoint = 100;
-
     revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - revealPoint) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 120) {
             el.classList.add("active");
         }
     });
 }
 
 /* ================================
-   NAVBAR ACTIVE LINK (SCROLL SPY)
+   NAVBAR SCROLL EFFECT + SCROLL SPY
 ================================ */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+function updateNavbar() {
+    if (window.scrollY > 20) {
+        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
+    } else {
+        navbar.style.boxShadow = "none";
+    }
 
-function updateActiveNav() {
-    let currentSection = "";
-
+    let current = "";
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 200;
         if (window.pageYOffset >= sectionTop) {
-            currentSection = section.getAttribute("id");
+            current = section.getAttribute("id");
         }
     });
 
     navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === `#${currentSection}`) {
+        if (link.getAttribute("href") === `#${current}`) {
             link.classList.add("active");
         }
     });
 }
 
 /* ================================
-   SKILL PROGRESS BAR ANIMATION
+   SKILLS ANIMATION (ONCE)
 ================================ */
-const skillBars = document.querySelectorAll(".progress-bar");
-const skillsSection = document.getElementById("skills");
-let skillsAnimated = false;
-
 function animateSkills() {
-    if (!skillsSection) return;
+    if (!skillsSection || skillsAnimated) return;
 
-    const sectionTop = skillsSection.getBoundingClientRect().top;
-
-    if (sectionTop < window.innerHeight - 100 && !skillsAnimated) {
+    const rect = skillsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 120) {
         skillBars.forEach(bar => {
             bar.style.width = bar.dataset.width;
         });
@@ -60,35 +73,31 @@ function animateSkills() {
 }
 
 /* ================================
-   HAMBURGER MENU (MOBILE)
+   HAMBURGER MENU
 ================================ */
-const hamburger = document.getElementById("hamburger");
-const navLinksMenu = document.getElementById("navLinks");
-
 if (hamburger && navLinksMenu) {
     hamburger.addEventListener("click", () => {
         navLinksMenu.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
     });
 
-    // Close menu when a link is clicked
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener("click", () => {
             navLinksMenu.classList.remove("active");
+            document.body.classList.remove("menu-open");
         });
     });
 }
 
 /* ================================
-   VIDEO MODAL (PROJECT DEMOS)
+   VIDEO MODAL
 ================================ */
-const videoModal = document.getElementById("videoModal");
-const projectVideo = document.getElementById("projectVideo");
-
 function openVideo(videoSrc) {
     if (!videoModal || !projectVideo) return;
 
     projectVideo.src = videoSrc;
     videoModal.style.display = "block";
+    document.body.style.overflow = "hidden";
     projectVideo.play();
 }
 
@@ -99,23 +108,51 @@ function closeVideo() {
     projectVideo.currentTime = 0;
     projectVideo.src = "";
     videoModal.style.display = "none";
+    document.body.style.overflow = "auto";
 }
 
-// Close video when clicking outside video
+// Click outside to close
 window.addEventListener("click", (e) => {
-    if (e.target === videoModal) {
-        closeVideo();
-    }
+    if (e.target === videoModal) closeVideo();
 });
+
+// ESC key close
+window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeVideo();
+});
+
+/* ================================
+   THEME TOGGLE (DARK / LIGHT)
+================================ */
+function setTheme(theme) {
+    if (theme === "light") {
+        document.body.classList.add("light-theme");
+        themeToggle.innerHTML = "☀️";
+    } else {
+        document.body.classList.remove("light-theme");
+        themeToggle.innerHTML = "🌙";
+    }
+    localStorage.setItem("theme", theme);
+}
+
+if (themeToggle) {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+        const isLight = document.body.classList.contains("light-theme");
+        setTheme(isLight ? "dark" : "light");
+    });
+}
 
 /* ================================
    MAIN SCROLL HANDLER
 ================================ */
-function onScrollHandler() {
+function onScroll() {
     revealOnScroll();
-    updateActiveNav();
+    updateNavbar();
     animateSkills();
 }
 
-window.addEventListener("scroll", onScrollHandler);
-onScrollHandler();
+window.addEventListener("scroll", onScroll);
+window.addEventListener("load", onScroll);

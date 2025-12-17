@@ -11,17 +11,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
-    <h2 class="logo"></h2>
+    <h2 class="logo">Afzal</h2>
 
     <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
@@ -35,38 +37,48 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <button id="themeToggle" class="theme-toggle"></button>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
 </nav>
 
-<!-- ===== HEADER ===== -->
-<header>
+<!-- ================= HERO ================= -->
+<header class="reveal">
     <h1>Mohamed Afzal A</h1>
-    <p id="typing-text"></p>
+    <p id="typing-text">Web Developer • ML Enthusiast • UI Designer</p>
 
     <div class="buttons">
         <a href="#projects" class="btn">View Projects</a>
-        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn-outline" download>Download Resume</a>
-        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn" target="_blank">Open Resume</a>
+        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn-outline" download>
+            Download Resume
+        </a>
+        <a href="resume/Mohamed_Afzal_Resume.pdf" class="btn" target="_blank">
+            Open Resume
+        </a>
     </div>
 
     <div class="social-links">
-        <a href="https://github.com/Afzal174" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/mohamed-afzal-7ba942314" target="_blank">
+        <a href="https://github.com/Afzal174" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-afzal-7ba942314" target="_blank" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
         </a>
     </div>
 </header>
 
-<!-- ===== ABOUT ===== -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="reveal">
     <h2>About Me</h2>
-    <p>
-        Final-year Computer Science and Engineering student at Sathyabama Institute of Science and Technology, Chennai.
-        Passionate about web development and machine learning with hands-on experience in real-world projects.
-    </p>
+    <div class="card">
+        <p>
+            I am a final-year Computer Science and Engineering student at
+            <strong>Sathyabama Institute of Science and Technology, Chennai</strong>.
+            I am passionate about building modern web applications and
+            exploring machine learning through real-world projects.
+        </p>
+    </div>
 </section>
 
-<!-- ===== EDUCATION ===== -->
+<!-- ================= EDUCATION ================= -->
 <section id="education" class="reveal">
     <h2>Education</h2>
 
@@ -83,79 +95,132 @@
     </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
+<!-- ================= SKILLS ================= -->
 <section id="skills" class="reveal">
     <h2>Skills</h2>
 
-    <div class="skill"><p>HTML & CSS</p><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
-    <div class="skill"><p>Responsive Web Design</p><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
-    <div class="skill"><p>Java (Basics)</p><div class="progress"><div class="progress-bar" data-width="60%"></div></div></div>
-    <div class="skill"><p>MySQL</p><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
-    <div class="skill"><p>Machine Learning</p><div class="progress"><div class="progress-bar" data-width="65%"></div></div></div>
-    <div class="skill"><p>UI / UX</p><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+    <div class="card">
+        <div class="skill">
+            <p>HTML & CSS</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>Responsive Web Design</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>Java (Basics)</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="60%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>MySQL</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="70%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>Machine Learning</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="65%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <p>UI / UX</p>
+            <div class="progress">
+                <div class="progress-bar" data-width="80%"></div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- ===== EXPERIENCE ===== -->
+<!-- ================= EXPERIENCE ================= -->
 <section id="experience" class="reveal">
     <h2>Experience</h2>
+
     <div class="card">
         <h3>Web Development Intern</h3>
         <p>Prodigy InfoTech | Dec 2024</p>
         <ul>
-            <li>Built frontend mini projects</li>
+            <li>Developed frontend mini projects</li>
             <li>Improved UI responsiveness</li>
-            <li>Worked on real-time applications</li>
+            <li>Worked on real-time web applications</li>
         </ul>
     </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
+<!-- ================= PROJECTS ================= -->
 <section id="projects" class="reveal">
     <h2>Projects</h2>
 
-    <!-- Hotel -->
-    <div class="project-card">
-        <img src="images/hotel.png"
-             class="project-img"
-             onclick="openVideo('videos/ACJ_1.mp4')">
-        <h3>Hotel Reservation System</h3>
-        <p>Responsive hotel booking website.</p>
-        <span>HTML, CSS</span>
-        <div class="project-links">
-            <a href="https://github.com/Afzal174/Hotel-Managment-System" target="_blank" class="btn">GitHub</a>
-        </div>
-    </div>
+    <div class="projects-grid">
 
-    <!-- Disease -->
-    <div class="project-card">
-        <img src="images/disease.png"
-             class="project-img"
-             onclick="openVideo('videos/Disease_Prediction.mp4')">
-        <h3>Disease Prediction (ML)</h3>
-        <p>ML app predicting multiple diseases.</p>
-        <span>Python, Streamlit</span>
-        <div class="project-links">
-            <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML" target="_blank" class="btn">GitHub</a>
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src="images/hotel.png" class="project-img"
+                 alt="Hotel Reservation System"
+                 onclick="openVideo('videos/ACJ_1.mp4')">
+            <h3>Hotel Reservation System</h3>
+            <p>Responsive hotel booking website.</p>
+            <span>HTML • CSS</span>
+            <div class="project-links">
+                <a href="https://github.com/Afzal174/Hotel-Managment-System"
+                   target="_blank" class="btn">
+                    GitHub
+                </a>
+            </div>
         </div>
-    </div>
 
-    <!-- Clean Street -->
-    <div class="project-card">
-        <img src="images/cleanstreet.png"
-             class="project-img"
-             onclick="openVideo('videos/Clean_Street.mp4')">
-        <h3>Clean Street – Full Stack</h3>
-        <p>Civic cleanliness reporting system.</p>
-        <span>React, SQL</span>
-        <div class="project-links">
-            <a href="https://github.com/Afzal174/Clean_Street" target="_blank" class="btn">GitHub</a>
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="images/disease.png" class="project-img"
+                 alt="Disease Prediction ML"
+                 onclick="openVideo('videos/Disease_Prediction.mp4')">
+            <h3>Disease Prediction (ML)</h3>
+            <p>ML-based app predicting multiple diseases.</p>
+            <span>Python • Streamlit</span>
+            <div class="project-links">
+                <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML"
+                   target="_blank" class="btn">
+                    GitHub
+                </a>
+            </div>
         </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="images/cleanstreet.png" class="project-img"
+                 alt="Clean Street Project"
+                 onclick="openVideo('videos/Clean_Street.mp4')">
+            <h3>Clean Street – Full Stack</h3>
+            <p>Civic cleanliness reporting system.</p>
+            <span>React • SQL</span>
+            <div class="project-links">
+                <a href="https://github.com/Afzal174/Clean_Street"
+                   target="_blank" class="btn">
+                    GitHub
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="reveal">
     <h2>Contact Me</h2>
+
     <form action="https://formspree.io/f/xyzzabcd" method="POST" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -164,17 +229,18 @@
     </form>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>© 2025 Mohamed Afzal A | Portfolio</p>
 </footer>
 
-<!-- ===== VIDEO MODAL ===== -->
+<!-- ================= VIDEO MODAL ================= -->
 <div id="videoModal" class="modal">
     <span class="close" onclick="closeVideo()">×</span>
-    <video id="projectVideo" controls autoplay></video>
+    <video id="projectVideo" controls></video>
 </div>
 
-<!-- ===== SCRIPT ===== -->
+<!-- ================= SCRIPT ================= -->
 <script src="script.js"></script>
 
 </body>
