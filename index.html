@@ -35,8 +35,7 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <!-- Theme Toggle -->
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <button id="themeToggle" class="theme-toggle"></button>
 </nav>
 
 <!-- ===== HEADER ===== -->
@@ -114,17 +113,11 @@
 <section id="projects" class="reveal">
     <h2>Projects</h2>
 
-    <!-- Filters -->
-    <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="ml">ML</button>
-        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-    </div>
-
     <!-- Hotel -->
-    <div class="project-card" data-category="web">
-        <img src="images/hotel.png" class="project-img" onclick="openModal(this)">
+    <div class="project-card">
+        <img src="images/hotel.png"
+             class="project-img"
+             onclick="openVideo('videos/ACJ_1.mp4')">
         <h3>Hotel Reservation System</h3>
         <p>Responsive hotel booking website.</p>
         <span>HTML, CSS</span>
@@ -134,8 +127,10 @@
     </div>
 
     <!-- Disease -->
-    <div class="project-card" data-category="ml">
-        <img src="images/disease.png" class="project-img" onclick="openModal(this)">
+    <div class="project-card">
+        <img src="images/disease.png"
+             class="project-img"
+             onclick="openVideo('videos/Disease_Prediction.mp4')">
         <h3>Disease Prediction (ML)</h3>
         <p>ML app predicting multiple diseases.</p>
         <span>Python, Streamlit</span>
@@ -145,8 +140,10 @@
     </div>
 
     <!-- Clean Street -->
-    <div class="project-card" data-category="fullstack">
-        <img src="images/cleanstreet.png" class="project-img" onclick="openModal(this)">
+    <div class="project-card">
+        <img src="images/cleanstreet.png"
+             class="project-img"
+             onclick="openVideo('videos/Clean_Street.mp4')">
         <h3>Clean Street – Full Stack</h3>
         <p>Civic cleanliness reporting system.</p>
         <span>React, SQL</span>
@@ -171,12 +168,14 @@
     <p>© 2025 Mohamed Afzal A | Portfolio</p>
 </footer>
 
-<!-- ===== IMAGE MODAL ===== -->
-<div id="imgModal" class="modal">
-    <span class="close" onclick="closeModal()">×</span>
-    <img id="modalImg">
+<!-- ===== VIDEO MODAL ===== -->
+<div id="videoModal" class="modal">
+    <span class="close" onclick="closeVideo()">×</span>
+    <video id="projectVideo" controls autoplay></video>
 </div>
 
+<!-- ===== SCRIPT ===== -->
 <script src="script.js"></script>
+
 </body>
 </html>

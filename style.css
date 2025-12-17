@@ -204,26 +204,12 @@ h2 {
     transform: scale(1.03);
 }
 
-/* ===== PROJECT FILTERS ===== */
-.project-filters {
+/* ===== PROJECT LINKS ===== */
+.project-links {
+    margin-top: 15px;
     display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
+    gap: 12px;
     flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: var(--card);
-    color: var(--text);
-}
-
-.filter-btn.active {
-    background: var(--accent);
-    color: white;
 }
 
 /* ===== SKILLS ===== */
@@ -249,14 +235,6 @@ h2 {
     background: linear-gradient(90deg, #60a5fa, #2563eb);
     border-radius: 20px;
     transition: width 1.5s ease-in-out;
-}
-
-/* ===== PROJECT LINKS ===== */
-.project-links {
-    margin-top: 15px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
 }
 
 /* ===== CONTACT FORM ===== */
@@ -302,20 +280,20 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ===== IMAGE MODAL ===== */
+/* ===== VIDEO MODAL ===== */
 .modal {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
     z-index: 9999;
 }
 
-.modal img {
-    max-width: 90%;
-    max-height: 90%;
+.modal video {
+    width: 80%;
+    max-width: 800px;
+    margin: 5% auto;
+    display: block;
     border-radius: 10px;
 }
 
@@ -371,5 +349,10 @@ footer {
 
     header h1 {
         font-size: 2rem;
+    }
+
+    .modal video {
+        width: 92%;
+        margin-top: 20%;
     }
 }

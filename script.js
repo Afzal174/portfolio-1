@@ -79,6 +79,36 @@ if (hamburger && navLinksMenu) {
 }
 
 /* ================================
+   VIDEO MODAL (PROJECT DEMOS)
+================================ */
+const videoModal = document.getElementById("videoModal");
+const projectVideo = document.getElementById("projectVideo");
+
+function openVideo(videoSrc) {
+    if (!videoModal || !projectVideo) return;
+
+    projectVideo.src = videoSrc;
+    videoModal.style.display = "block";
+    projectVideo.play();
+}
+
+function closeVideo() {
+    if (!videoModal || !projectVideo) return;
+
+    projectVideo.pause();
+    projectVideo.currentTime = 0;
+    projectVideo.src = "";
+    videoModal.style.display = "none";
+}
+
+// Close video when clicking outside video
+window.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+        closeVideo();
+    }
+});
+
+/* ================================
    MAIN SCROLL HANDLER
 ================================ */
 function onScrollHandler() {
