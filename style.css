@@ -19,31 +19,16 @@ body {
 }
 
 /* =========================
-   THEME VARIABLES
+   THEME VARIABLES (DARK ONLY)
 ========================= */
 :root {
     --bg: #0b0f19;
     --text: #e5e7eb;
-    --nav: rgba(15, 23, 42, 0.75);
+    --nav: rgba(15, 23, 42, 0.85);
     --card: rgba(30, 41, 59, 0.75);
     --accent: #7c7cff;
     --accent-2: #00e0ff;
     --border: rgba(255, 255, 255, 0.08);
-}
-
-.light-theme {
-    --bg: #f8fafc;
-    --text: #0f172a;
-    --nav: rgba(255, 255, 255, 0.85);
-    --card: #ffffff;
-    --accent: #2563eb;
-    --accent-2: #06b6d4;
-    --border: rgba(0, 0, 0, 0.08);
-}
-
-body.light-theme {
-    background: #f8fafc;
-    color: #0f172a;
 }
 
 /* =========================
@@ -102,16 +87,6 @@ body.light-theme {
     width: 100%;
 }
 
-/* THEME TOGGLE */
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--text);
-    margin-left: 15px;
-}
-
 /* =========================
    HAMBURGER
 ========================= */
@@ -146,13 +121,10 @@ header h1 {
     font-size: 3rem;
     font-weight: 800;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
-
-    background-clip: text;          /* standard */
-    -webkit-background-clip: text;  /* safari */
-
+    background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
 }
-
 
 header p {
     margin: 18px 0 35px;
@@ -227,13 +199,10 @@ h2 {
     font-size: 2rem;
     text-align: center;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
-
     background-clip: text;
     -webkit-background-clip: text;
-
     color: transparent;
 }
-
 
 /* =========================
    CARDS (GLASS)
@@ -254,6 +223,7 @@ h2 {
     transform: translateY(-10px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 }
+
 /* =========================
    PROJECTS – SINGLE ROW
 ========================= */
@@ -261,9 +231,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    align-items: stretch;
 }
-
 
 /* PROJECT IMAGE */
 .project-img {

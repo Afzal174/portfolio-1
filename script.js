@@ -14,7 +14,6 @@ const projectVideo = document.getElementById("projectVideo");
 const skillBars = document.querySelectorAll(".progress-bar");
 const skillsSection = document.getElementById("skills");
 
-const themeToggle = document.getElementById("themeToggle");
 const navbar = document.querySelector(".navbar");
 
 let skillsAnimated = false;
@@ -41,24 +40,24 @@ function updateNavbar() {
         navbar.style.boxShadow = "none";
     }
 
-    let current = "";
+    let currentSection = "";
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 200;
         if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
+            currentSection = section.getAttribute("id");
         }
     });
 
     navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
+        if (link.getAttribute("href") === `#${currentSection}`) {
             link.classList.add("active");
         }
     });
 }
 
 /* ================================
-   SKILLS ANIMATION (ONCE)
+   SKILLS ANIMATION (RUN ONCE)
 ================================ */
 function animateSkills() {
     if (!skillsSection || skillsAnimated) return;
@@ -78,13 +77,11 @@ function animateSkills() {
 if (hamburger && navLinksMenu) {
     hamburger.addEventListener("click", () => {
         navLinksMenu.classList.toggle("active");
-        document.body.classList.toggle("menu-open");
     });
 
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             navLinksMenu.classList.remove("active");
-            document.body.classList.remove("menu-open");
         });
     });
 }
@@ -111,48 +108,28 @@ function closeVideo() {
     document.body.style.overflow = "auto";
 }
 
-// Click outside to close
+// Click outside modal to close
 window.addEventListener("click", (e) => {
-    if (e.target === videoModal) closeVideo();
-});
-
-// ESC key close
-window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeVideo();
-});
-
-/* ================================
-   THEME TOGGLE (DARK / LIGHT)
-================================ */
-function setTheme(theme) {
-    if (theme === "light") {
-        document.body.classList.add("light-theme");
-        themeToggle.innerHTML = "☀️";
-    } else {
-        document.body.classList.remove("light-theme");
-        themeToggle.innerHTML = "🌙";
+    if (e.target === videoModal) {
+        closeVideo();
     }
-    localStorage.setItem("theme", theme);
-}
+});
 
-if (themeToggle) {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
-
-    themeToggle.addEventListener("click", () => {
-        const isLight = document.body.classList.contains("light-theme");
-        setTheme(isLight ? "dark" : "light");
-    });
-}
+// ESC key to close modal
+window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeVideo();
+    }
+});
 
 /* ================================
    MAIN SCROLL HANDLER
 ================================ */
-function onScroll() {
+function onScrollHandler() {
     revealOnScroll();
     updateNavbar();
     animateSkills();
 }
 
-window.addEventListener("scroll", onScroll);
-window.addEventListener("load", onScroll);
+window.addEventListener("scroll", onScrollHandler);
+window.addEventListener("load", onScrollHandler);
