@@ -315,6 +315,26 @@ h2 {
 /* =========================
    CONTACT FORM
 ========================= */
+/* =========================
+   CONTACT SECTION FIX
+========================= */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center heading */
+#contact h2 {
+    text-align: center;
+}
+
+/* Center the form box */
+#contact .contact-form {
+    width: 100%;
+    max-width: 520px;
+}
+
 .contact-form {
     max-width: 500px;
     margin: auto;
