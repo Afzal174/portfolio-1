@@ -195,31 +195,45 @@
     <h2>Contact Me</h2>
 
     <form
+        id="contactForm"
         action="https://formspree.io/f/mlgrzedo"
         method="POST"
         class="contact-form"
+        novalidate
     >
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
 
-        <!-- Optional subject -->
-        <input type="hidden" name="_subject" value="New Portfolio Message">
+        <!-- Name -->
+        <div class="input-group">
+            <input type="text" name="name" id="name" required />
+            <label>Your Name</label>
+            <small class="error-msg"></small>
+        </div>
 
-        <!-- Redirect after submit -->
-        <input type="hidden" name="_next" value="thankyou.html">
+        <!-- Email -->
+        <div class="input-group">
+            <input type="email" name="email" id="email" required />
+            <label>Your Email</label>
+            <small class="error-msg"></small>
+        </div>
 
-        <button type="submit" class="btn">Send Message</button>
+        <!-- Message -->
+        <div class="input-group">
+            <textarea name="message" id="message" required></textarea>
+            <label>Your Message</label>
+            <small class="error-msg"></small>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn submit-btn">
+            <span class="btn-text">Send Message</span>
+            <span class="loader"></span>
+        </button>
+        <!-- Inline success message -->
+        <p class="form-success" id="formSuccess">
+            ✅ Message sent successfully!
+        </p>
     </form>
-
-    <p class="contact-note">
-        Your message lands directly in my Gmail
-    </p>
 </section>
-
-<footer>
-    <p>© 2025 Mohamed Afzal A | Portfolio</p>
-</footer>
 
 <!-- ================= VIDEO MODAL ================= -->
 <div id="videoModal" class="modal">
