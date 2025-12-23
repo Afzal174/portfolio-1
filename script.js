@@ -12,14 +12,14 @@ const videoModal = document.getElementById("videoModal");
 const projectVideo = document.getElementById("projectVideo");
 
 const skillBars = document.querySelectorAll(".progress-bar");
-const skillsSection = document.getElementById("skills");
+const skillsSection = document.getElementById("skills-experience");
 
 const navbar = document.querySelector(".navbar");
 
 let skillsAnimated = false;
 
 /* ================================
-   SCROLL REVEAL (OPTIMIZED)
+   SCROLL REVEAL
 ================================ */
 function revealOnScroll() {
     revealElements.forEach(el => {
@@ -31,18 +31,21 @@ function revealOnScroll() {
 }
 
 /* ================================
-   NAVBAR SCROLL EFFECT + SCROLL SPY
+   NAVBAR SHADOW + SCROLL SPY
 ================================ */
 function updateNavbar() {
+    // Shadow on scroll
     if (window.scrollY > 20) {
         navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
     } else {
         navbar.style.boxShadow = "none";
     }
 
+    // Scroll spy
     let currentSection = "";
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
+        const sectionTop = section.offsetTop - 250;
         if (window.pageYOffset >= sectionTop) {
             currentSection = section.getAttribute("id");
         }
@@ -57,7 +60,7 @@ function updateNavbar() {
 }
 
 /* ================================
-   SKILLS ANIMATION (RUN ONCE)
+   SKILLS ANIMATION (ONCE)
 ================================ */
 function animateSkills() {
     if (!skillsSection || skillsAnimated) return;
@@ -108,14 +111,14 @@ function closeVideo() {
     document.body.style.overflow = "auto";
 }
 
-// Click outside modal to close
+// Click outside modal
 window.addEventListener("click", (e) => {
     if (e.target === videoModal) {
         closeVideo();
     }
 });
 
-// ESC key to close modal
+// ESC key close
 window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeVideo();
