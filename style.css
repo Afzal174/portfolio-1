@@ -578,3 +578,67 @@ footer {
     color: #22c55e;
     font-size: 0.95rem;
 }
+/* =========================
+   DIRECT CONTACT OPTIONS
+========================= */
+.direct-contact {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.contact-link i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.contact-link:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+/* =========================
+   CONTACT ICON ROW
+========================= */
+.contact-icons {
+    margin-top: 28px;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Icon style */
+.contact-icons a {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.4rem;
+    transition: 0.35s ease;
+    text-decoration: none;
+}
+
+/* Hover effect */
+.contact-icons a:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #020617;
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(124, 124, 255, 0.35);
+}
