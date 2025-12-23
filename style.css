@@ -62,10 +62,6 @@ body {
     gap: 28px;
 }
 
-.nav-links li {
-    list-style: none;
-}
-
 .nav-links a {
     text-decoration: none;
     color: var(--text);
@@ -107,7 +103,7 @@ body {
 }
 
 /* =========================
-   HERO / HEADER
+   HERO
 ========================= */
 header {
     min-height: 100vh;
@@ -196,7 +192,6 @@ section {
     margin: auto;
 }
 
-/* Fix navbar overlap */
 section[id] {
     scroll-margin-top: 90px;
 }
@@ -214,25 +209,19 @@ h2 {
 }
 
 /* =========================
-   TWO COLUMN LAYOUT
+   TWO COLUMN
 ========================= */
 .two-column {
     display: flex;
     gap: 40px;
-    align-items: flex-start;
-    padding-top: 20px;
 }
 
 .two-column > div {
     flex: 1;
 }
 
-.two-column h2 {
-    text-align: left;
-}
-
 /* =========================
-   CARDS (GLASS)
+   CARDS
 ========================= */
 .card,
 .project-card {
@@ -265,7 +254,6 @@ h2 {
     border-radius: 14px;
     margin-bottom: 15px;
     cursor: pointer;
-    object-fit: cover;
     transition: transform 0.35s ease;
 }
 
@@ -280,11 +268,6 @@ h2 {
     margin-bottom: 28px;
 }
 
-.skill p {
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
 .progress {
     background: #020617;
     border-radius: 20px;
@@ -296,38 +279,11 @@ h2 {
     height: 100%;
     width: 0;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    border-radius: 20px;
     transition: width 1.5s ease;
 }
 
 /* =========================
-   EXPERIENCE LIST
-========================= */
-.card ul {
-    margin-top: 12px;
-    padding-left: 18px;
-}
-
-.card ul li {
-    margin-bottom: 6px;
-}
-
-/* =========================
-   CONTACT SECTION
-========================= */
-#contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Center heading */
-#contact h2 {
-    text-align: center;
-}
-
-/* =========================
-   CONTACT CENTER
+   CONTACT
 ========================= */
 .contact-center {
     display: flex;
@@ -335,9 +291,6 @@ h2 {
     align-items: center;
 }
 
-/* =========================
-   CONTACT FORM
-========================= */
 .contact-form {
     width: 100%;
     max-width: 520px;
@@ -346,9 +299,6 @@ h2 {
     gap: 22px;
 }
 
-/* =========================
-   FLOATING LABELS
-========================= */
 .input-group {
     position: relative;
 }
@@ -362,30 +312,19 @@ h2 {
     padding: 14px 12px;
     border-radius: 8px;
     outline: none;
-    font-size: 0.95rem;
 }
 
-/* Glow on focus */
-.input-group input:focus,
-.input-group textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px rgba(124, 124, 255, 0.35);
-}
-
-/* Labels */
 .input-group label {
     position: absolute;
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #94a3b8;
     font-size: 0.9rem;
-    pointer-events: none;
+    color: #94a3b8;
     transition: 0.3s ease;
-    background: transparent;
+    pointer-events: none;
 }
 
-/* Float label */
 .input-group input:focus + label,
 .input-group textarea:focus + label,
 .input-group input:not(:placeholder-shown) + label,
@@ -397,66 +336,94 @@ h2 {
     padding: 0 6px;
 }
 
-.input-group textarea {
-    height: 120px;
-    resize: none;
-}
-
 /* =========================
-   SUBMIT BUTTON LOADER
+   VIDEO MODAL (REFERENCE STYLE)
 ========================= */
-.submit-btn {
+.video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.video-box {
     position: relative;
+    width: 360px;
+    max-width: 90%;
+    border-radius: 18px;
     overflow: hidden;
+    background: #000;
+    animation: scaleIn 0.35s ease;
 }
 
-.loader {
-    display: none;
-    width: 18px;
-    height: 18px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-top-color: #020617;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: auto;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-.submit-btn.loading .btn-text {
-    display: none;
-}
-
-.submit-btn.loading .loader {
+.video-box video {
+    width: 100%;
+    height: auto;
     display: block;
 }
 
-/* =========================
-   SUCCESS MESSAGE
-========================= */
-.form-success {
-    display: none;
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 34px;
     text-align: center;
-    color: #22c55e;
-    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 2;
 }
 
-
-/* =========================
-   CONTACT NOTE
-========================= */
-.contact-note {
-    margin-top: 15px;
-    font-size: 0.95rem;
-    color: #c7d2fe;
-    text-align: center;
+@keyframes scaleIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
+/* =========================
+   CONTACT ICONS
+========================= */
+.contact-icons {
+    margin-top: 28px;
+    display: flex;
+    gap: 28px;
+}
+
+.contact-icons a {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.4rem;
+    transition: 0.35s ease;
+}
+
+.contact-icons a:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #020617;
+    transform: translateY(-6px);
+}
 
 /* =========================
-   SCROLL REVEAL
+   REVEAL
 ========================= */
 .reveal {
     opacity: 0;
@@ -467,45 +434,6 @@ h2 {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: var(--nav);
-    border-top: 1px solid var(--border);
-    font-size: 0.9rem;
-}
-
-/* =========================
-   VIDEO MODAL
-========================= */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 9999;
-}
-
-.modal video {
-    width: 80%;
-    max-width: 900px;
-    margin: 6% auto;
-    display: block;
-    border-radius: 14px;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
 }
 
 /* =========================
@@ -541,36 +469,7 @@ footer {
     .nav-links.active {
         display: flex;
     }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .modal video {
-        width: 92%;
-        margin-top: 20%;
-    }
 }
-/* =========================
-   ERROR MESSAGES
-========================= */
-.error-msg {
-    font-size: 0.8rem;
-    color: #ef4444;
-    margin-top: 4px;
-    display: none;
-}
-
-/* Invalid input state */
-.input-group.error input,
-.input-group.error textarea {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
-}
-
-/* =========================
-   SUCCESS MESSAGE
-========================= */
 .form-success {
     display: none;
     margin-top: 15px;
@@ -578,48 +477,6 @@ footer {
     color: #22c55e;
     font-size: 0.95rem;
 }
-/* =========================
-   DIRECT CONTACT OPTIONS
-========================= */
-.direct-contact {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-items: center;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: 0.3s ease;
-}
-
-.contact-link i {
-    font-size: 1.2rem;
-    color: var(--accent);
-}
-
-.contact-link:hover {
-    color: var(--accent);
-    transform: translateY(-2px);
-}
-/* =========================
-   CONTACT ICON ROW
-========================= */
-.contact-icons {
-    margin-top: 28px;
-    display: flex;
-    gap: 28px;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Icon style */
 .contact-icons a {
     width: 52px;
     height: 52px;
@@ -632,13 +489,5 @@ footer {
     color: var(--accent);
     font-size: 1.4rem;
     transition: 0.35s ease;
-    text-decoration: none;
-}
-
-/* Hover effect */
-.contact-icons a:hover {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #020617;
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(124, 124, 255, 0.35);
+    text-decoration: none; /* ✅ FIX */
 }

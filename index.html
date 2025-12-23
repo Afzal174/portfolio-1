@@ -59,8 +59,6 @@
 
 <!-- ================= ABOUT + EDUCATION ================= -->
 <section id="about-education" class="two-column reveal">
-
-    <!-- About -->
     <div>
         <h2>About Me</h2>
         <div class="card">
@@ -72,10 +70,8 @@
         </div>
     </div>
 
-    <!-- Education -->
     <div>
         <h2>Education</h2>
-
         <div class="card">
             <h3>B.E Computer Science and Engineering</h3>
             <p>Sathyabama Institute of Science and Technology</p>
@@ -88,53 +84,24 @@
             <span>12th: 67.5% | 10th: 66.4%</span>
         </div>
     </div>
-
 </section>
 
 <!-- ================= SKILLS + EXPERIENCE ================= -->
 <section id="skills-experience" class="two-column reveal">
-
-    <!-- Skills -->
     <div>
         <h2>Skills</h2>
-
         <div class="card">
-            <div class="skill">
-                <p>HTML & CSS</p>
-                <div class="progress"><div class="progress-bar" data-width="90%"></div></div>
-            </div>
-
-            <div class="skill">
-                <p>Responsive Web Design</p>
-                <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-            </div>
-
-            <div class="skill">
-                <p>Java (Basics)</p>
-                <div class="progress"><div class="progress-bar" data-width="60%"></div></div>
-            </div>
-
-            <div class="skill">
-                <p>MySQL</p>
-                <div class="progress"><div class="progress-bar" data-width="70%"></div></div>
-            </div>
-
-            <div class="skill">
-                <p>Machine Learning</p>
-                <div class="progress"><div class="progress-bar" data-width="65%"></div></div>
-            </div>
-
-            <div class="skill">
-                <p>UI / UX</p>
-                <div class="progress"><div class="progress-bar" data-width="80%"></div></div>
-            </div>
+            <div class="skill"><p>HTML & CSS</p><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+            <div class="skill"><p>Responsive Web Design</p><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+            <div class="skill"><p>Java (Basics)</p><div class="progress"><div class="progress-bar" data-width="60%"></div></div></div>
+            <div class="skill"><p>SQL</p><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+            <div class="skill"><p>Machine Learning</p><div class="progress"><div class="progress-bar" data-width="65%"></div></div></div>
+            <div class="skill"><p>UI / UX</p><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
         </div>
     </div>
 
-    <!-- Experience -->
     <div>
         <h2>Experience</h2>
-
         <div class="card">
             <h3>Web Development Intern</h3>
             <p>Prodigy InfoTech | Dec 2024</p>
@@ -145,7 +112,6 @@
             </ul>
         </div>
     </div>
-
 </section>
 
 <!-- ================= PROJECTS ================= -->
@@ -155,115 +121,79 @@
     <div class="projects-grid">
 
         <div class="project-card">
-            <img src="images/hotel.png" class="project-img"
+            <img src="images/hotel.png"
+                 class="project-img"
                  onclick="openVideo('videos/ACJ_1.mp4')">
             <h3>Hotel Reservation System</h3>
             <p>Responsive hotel booking website.</p>
             <span>HTML • CSS</span>
-            <a href="https://github.com/Afzal174/Hotel-Managment-System" target="_blank" class="btn">
-                GitHub
-            </a>
+            <a href="https://github.com/Afzal174/Hotel-Managment-System" target="_blank" class="btn">GitHub</a>
         </div>
 
         <div class="project-card">
-            <img src="images/disease.png" class="project-img"
+            <img src="images/disease.png"
+                 class="project-img"
                  onclick="openVideo('videos/Disease_Prediction.mp4')">
             <h3>Disease Prediction (ML)</h3>
             <p>ML-based health prediction app.</p>
             <span>Python • Streamlit</span>
-            <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML" target="_blank" class="btn">
-                GitHub
-            </a>
+            <a href="https://github.com/Afzal174/Multi-Disease-Prediction---ML" target="_blank" class="btn">GitHub</a>
         </div>
 
         <div class="project-card">
-            <img src="images/cleanstreet.png" class="project-img"
+            <img src="images/cleanstreet.png"
+                 class="project-img"
                  onclick="openVideo('videos/Clean_Street.mp4')">
             <h3>Clean Street – Full Stack</h3>
             <p>Civic cleanliness reporting system.</p>
-            <span>React • SQL</span>
-            <a href="https://github.com/Afzal174/Clean_Street" target="_blank" class="btn">
-                GitHub
-            </a>
+            <span>MERN • React</span>
+            <a href="https://github.com/Afzal174/Clean_Street" target="_blank" class="btn">GitHub</a>
         </div>
 
     </div>
 </section>
 
+<!-- ================= VIDEO MODAL ================= -->
+<div id="videoModal" class="video-modal">
+    <div class="video-box">
+        <span class="close-btn" onclick="closeVideo()">×</span>
+        <video id="modalVideo" controls></video>
+    </div>
+</div>
+
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="reveal contact-center">
     <h2>Contact Me</h2>
 
-    <form
-        id="contactForm"
-        action="https://formspree.io/f/mlgrzedo"
-        method="POST"
-        class="contact-form"
-        novalidate
-    >
-
-        <!-- Name -->
+    <form id="contactForm" action="https://formspree.io/f/mlgrzedo" method="POST" class="contact-form" novalidate>
         <div class="input-group">
             <input type="text" name="name" id="name" required />
             <label>Your Name</label>
             <small class="error-msg"></small>
         </div>
 
-        <!-- Email -->
         <div class="input-group">
             <input type="email" name="email" id="email" required />
             <label>Your Email</label>
             <small class="error-msg"></small>
         </div>
 
-        <!-- Message -->
         <div class="input-group">
             <textarea name="message" id="message" required></textarea>
             <label>Your Message</label>
             <small class="error-msg"></small>
         </div>
 
-        <!-- Submit Button -->
-        <button type="submit" class="btn submit-btn">
-            <span class="btn-text">Send Message</span>
-            <span class="loader"></span>
-        </button>
-
-        <!-- Inline success message -->
-        <p class="form-success" id="formSuccess">
-            ✅ Message sent successfully! 
-        </p>
+        <button type="submit" class="btn submit-btn">Send Message</button>
+        <p class="form-success" id="formSuccess">✅ Message sent successfully!</p>
     </form>
-<!-- ================= DIRECT CONTACT ICONS ================= -->
-<div class="contact-icons">
 
-    <!-- Email -->
-<a href="https://mail.google.com/mail/?view=cm
-&to=mohamedafzal525@gmail.com
-&su=Portfolio%20Contact
-&body=Hello%20Afzal,%0A%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."
-target="_blank"
-aria-label="Gmail">
-    <i class="fas fa-envelope"></i>
-</a>
-
-    <!-- Phone -->
-    <a href="tel:+919952666050" aria-label="Phone">
-    <i class="fas fa-phone"></i>
-</a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/godric_afzal" target="_blank" aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-</a>
-
-</div>
-
-<!-- ================= VIDEO MODAL ================= -->
-<div id="videoModal" class="modal">
-    <span class="close" onclick="closeVideo()">×</span>
-    <video id="projectVideo" controls></video>
-</div>
+    <div class="contact-icons">
+        <a href="https://mail.google.com/mail/?view=cm&to=mohamedafzal525@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+919952666050"><i class="fas fa-phone"></i></a>
+        <a href="https://www.instagram.com/godric_afzal" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
 
 <script src="script.js"></script>
 </body>

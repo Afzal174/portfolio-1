@@ -8,13 +8,14 @@ const navLinks = document.querySelectorAll(".nav-links a");
 const hamburger = document.getElementById("hamburger");
 const navLinksMenu = document.getElementById("navLinks");
 
-const videoModal = document.getElementById("videoModal");
-const projectVideo = document.getElementById("projectVideo");
-
 const skillBars = document.querySelectorAll(".progress-bar");
 const skillsSection = document.getElementById("skills-experience");
 
 const navbar = document.querySelector(".navbar");
+
+/* VIDEO MODAL ELEMENTS */
+const videoModal = document.getElementById("videoModal");
+const modalVideo = document.getElementById("modalVideo");
 
 let skillsAnimated = false;
 
@@ -34,20 +35,19 @@ function revealOnScroll() {
    NAVBAR SHADOW + SCROLL SPY
 ================================ */
 function updateNavbar() {
-    // Shadow on scroll
-    if (window.scrollY > 20) {
-        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
-    } else {
-        navbar.style.boxShadow = "none";
-    }
+    if (!navbar) return;
 
-    // Scroll spy
+    navbar.style.boxShadow =
+        window.scrollY > 20
+            ? "0 10px 30px rgba(0,0,0,0.35)"
+            : "none";
+
     let currentSection = "";
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 250;
         if (window.pageYOffset >= sectionTop) {
-            currentSection = section.getAttribute("id");
+            currentSection = section.id;
         }
     });
 
@@ -90,37 +90,42 @@ if (hamburger && navLinksMenu) {
 }
 
 /* ================================
-   VIDEO MODAL
+   VIDEO MODAL (REFERENCE STYLE)
 ================================ */
 function openVideo(videoSrc) {
-    if (!videoModal || !projectVideo) return;
+    if (!videoModal || !modalVideo) return;
 
-    projectVideo.src = videoSrc;
-    videoModal.style.display = "block";
+    modalVideo.src = videoSrc;
+    videoModal.style.display = "flex";
     document.body.style.overflow = "hidden";
-    projectVideo.play();
+
+    modalVideo.load();
+    modalVideo.play().catch(() => {});
 }
 
 function closeVideo() {
-    if (!videoModal || !projectVideo) return;
+    if (!videoModal || !modalVideo) return;
 
-    projectVideo.pause();
-    projectVideo.currentTime = 0;
-    projectVideo.src = "";
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+    modalVideo.src = "";
+
     videoModal.style.display = "none";
     document.body.style.overflow = "auto";
 }
 
-// Click outside modal
-window.addEventListener("click", (e) => {
-    if (e.target === videoModal) {
-        closeVideo();
-    }
-});
+/* Close when clicking outside modal */
+if (videoModal) {
+    videoModal.addEventListener("click", (e) => {
+        if (e.target === videoModal) {
+            closeVideo();
+        }
+    });
+}
 
-// ESC key close
+/* Close with ESC key */
 window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "Escape" && videoModal.style.display === "flex") {
         closeVideo();
     }
 });
@@ -136,6 +141,7 @@ function onScrollHandler() {
 
 window.addEventListener("scroll", onScrollHandler);
 window.addEventListener("load", onScrollHandler);
+
 /* ================================
    CONTACT FORM VALIDATION + AUTO HIDE
 ================================ */
@@ -173,22 +179,18 @@ if (contactForm) {
         const message = document.getElementById("message");
         const submitBtn = document.querySelector(".submit-btn");
 
-        // Clear old errors
         [name, email, message].forEach(clearError);
 
-        // Name validation
         if (name.value.trim() === "") {
             showError(name, "Name is required");
             valid = false;
         }
 
-        // Email validation
         if (!validateEmail(email.value)) {
             showError(email, "Enter a valid email address");
             valid = false;
         }
 
-        // Message validation
         if (message.value.trim().length < 10) {
             showError(message, "Message must be at least 10 characters");
             valid = false;
@@ -196,7 +198,6 @@ if (contactForm) {
 
         if (!valid) return;
 
-        // Submit with loader
         submitBtn.classList.add("loading");
 
         try {
@@ -210,7 +211,6 @@ if (contactForm) {
                 contactForm.reset();
                 successMsg.style.display = "block";
 
-                // Auto-hide success message
                 setTimeout(() => {
                     successMsg.style.display = "none";
                 }, 4000);
