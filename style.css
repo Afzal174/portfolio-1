@@ -313,10 +313,7 @@ h2 {
 }
 
 /* =========================
-   CONTACT FORM
-========================= */
-/* =========================
-   CONTACT SECTION FIX
+   CONTACT SECTION
 ========================= */
 #contact {
     display: flex;
@@ -329,15 +326,13 @@ h2 {
     text-align: center;
 }
 
-/* Center the form box */
-#contact .contact-form {
+/* =========================
+   CONTACT FORM
+========================= */
+.contact-form {
     width: 100%;
     max-width: 520px;
-}
-
-.contact-form {
-    max-width: 500px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -351,12 +346,29 @@ h2 {
     padding: 12px;
     border-radius: 8px;
     outline: none;
+    font-size: 0.95rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #94a3b8;
 }
 
 .contact-form textarea {
     resize: none;
     height: 120px;
 }
+
+/* =========================
+   CONTACT NOTE
+========================= */
+.contact-note {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #c7d2fe;
+    text-align: center;
+}
+
 
 /* =========================
    SCROLL REVEAL

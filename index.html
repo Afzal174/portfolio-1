@@ -191,15 +191,30 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="reveal">
+<section id="contact" class="reveal contact-center">
     <h2>Contact Me</h2>
 
-    <form action="https://formspree.io/f/xyzzabcd" method="POST" class="contact-form">
+    <form
+        action="https://formspree.io/f/mlgrzedo"
+        method="POST"
+        class="contact-form"
+    >
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <!-- Optional subject -->
+        <input type="hidden" name="_subject" value="New Portfolio Message">
+
+        <!-- Redirect after submit -->
+        <input type="hidden" name="_next" value="thankyou.html">
+
         <button type="submit" class="btn">Send Message</button>
     </form>
+
+    <p class="contact-note">
+        Your message lands directly in my Gmail
+    </p>
 </section>
 
 <footer>
