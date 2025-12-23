@@ -88,9 +88,8 @@ if (hamburger && navLinksMenu) {
         });
     });
 }
-
 /* ================================
-   VIDEO MODAL (REFERENCE STYLE)
+   VIDEO MODAL (MOBILE SAFE)
 ================================ */
 function openVideo(videoSrc) {
     if (!videoModal || !modalVideo) return;
@@ -100,7 +99,11 @@ function openVideo(videoSrc) {
     document.body.style.overflow = "hidden";
 
     modalVideo.load();
-    modalVideo.play().catch(() => {});
+
+    // Play only after user interaction (mobile safe)
+    setTimeout(() => {
+        modalVideo.play().catch(() => {});
+    }, 200);
 }
 
 function closeVideo() {
@@ -114,21 +117,20 @@ function closeVideo() {
     document.body.style.overflow = "auto";
 }
 
-/* Close when clicking outside modal */
-if (videoModal) {
-    videoModal.addEventListener("click", (e) => {
-        if (e.target === videoModal) {
-            closeVideo();
-        }
-    });
-}
+/* Tap outside to close */
+videoModal.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+        closeVideo();
+    }
+});
 
-/* Close with ESC key */
+/* ESC key (desktop) */
 window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && videoModal.style.display === "flex") {
         closeVideo();
     }
 });
+
 
 /* ================================
    MAIN SCROLL HANDLER
